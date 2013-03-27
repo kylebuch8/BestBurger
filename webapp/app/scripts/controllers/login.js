@@ -5,7 +5,13 @@
 		document.addEventListener("deviceready", onDeviceReady, false);
 
 		function onDeviceReady() {
-			console.log("ready!");
+			if (device.platform === "Android") {
+				document.addEventListener("backbutton", onBackKeyDown, false);
+			}
 		};
+
+		function onBackKeyDown() {
+			navigator.app.exitApp();
+		}
 	}]);
 })();
