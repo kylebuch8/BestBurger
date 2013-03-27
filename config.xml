@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        id        = "com.bestthing.bestburger"
+        versionCode="10" 
+        version   = "1.0.0">
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>BestBurger</name>
+
+    <description>
+        Rate burgers and share your ratings
+    </description>
+
+</widget>
