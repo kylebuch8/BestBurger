@@ -58,3 +58,7 @@ local.properties
 android/.classpath
 
 android/project.properties
+
+*.sublime-project
+
+*.sublime-workspace
