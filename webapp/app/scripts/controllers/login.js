@@ -23,7 +23,7 @@
 
 			switch (provider) {
 				case 'google':
-					url = 'https://accounts.google.com/o/oauth2/auth?response_type=code&scope=https://www.googleapis.com/auth/userinfo.profile&client_id=124967647113.apps.googleusercontent.com&redirect_uri=http://google.com/';
+					url = 'https://accounts.google.com/o/oauth2/auth?response_type=token&scope=https://www.googleapis.com/auth/userinfo.profile&client_id=124967647113.apps.googleusercontent.com&redirect_uri=http://www.google.com/';
 				break;
 
 				case 'facebook':
@@ -33,7 +33,7 @@
 
 			var ref = window.open(url, '_blank', 'location=yes');
 			ref.addEventListener('loadstart', function(event) {
-				var patt = (provider === 'google') ? new RegExp(/http:\/\/www.google.com\/[^;]+code=([^"]+)/) : new RegExp(/http:\/\/www.google.com\/[^;]+access_token=([^"]+)/),
+				var patt = new RegExp(/http:\/\/www.google.com\/[^;]+access_token=([^"]+)/),
     				result = patt.exec(event.url);
 
     			console.log('Loading url: ' + event.url);
@@ -41,12 +41,28 @@
     			if (result === null) {
     				console.log('no code');
     			} else {
+    				/*
+    				 * hallelujah! we have a code. now let's save it
+    				 */
     				console.log('we have a code');
     				console.log(result[1]);
-    				alert(result[1]);
+
+    				var token = result[1];
+
+    				localStorage.setItem(Best.authProvider, provider);
+    				localStorage.setItem(Best.tokenString, token);
+
+    				/*
+    				 * close the inappbrowser
+    				 */
     				ref.close();
 
     				console.log("send to profile page");
+
+    				/*
+    				 * enable the back button again. this will allow the user to go back to
+    				 * the /login screen
+    				 */
     				document.removeEventListener('backbutton', onBackKeyDown, false);
 
     				$scope.$apply(function() {
