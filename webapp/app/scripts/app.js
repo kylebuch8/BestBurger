@@ -3,7 +3,8 @@
 
     window.Best = {
         appName : 'BestBurger',
-        tokenString : 'token'
+        authProvider : 'authProvider',
+        tokenString : 'token',
     };
 
     angular.module(Best.appName, [])
