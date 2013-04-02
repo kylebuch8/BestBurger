@@ -1,0 +1,16 @@
+<p>Burger: {{burger.name}}</p>
+<p>Location: {{location}}</p>
+<div>
+	<select name="rating" data-ng-model="rating">
+		<option value="">Rating</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	</select>
+</div>
+<textarea name="comments" cols="30" rows="10" placeholder="Comments" data-ng-model="comments"></textarea>
+<div>
+	<button data-ng-click="submit()">Submit</button>
+</div>
