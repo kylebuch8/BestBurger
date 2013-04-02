@@ -26,6 +26,10 @@
                     templateUrl: 'views/rate.html',
                     controller: 'RateCtrl'
                 })
+                .when('/venues', {
+                  templateUrl: 'views/venues.html',
+                  controller: 'VenuesCtrl'
+                })
                 .otherwise({
                     redirectTo : '/'
                 });

@@ -1,0 +1,7 @@
+<label>Search <input data-ng-model="venue"></label>
+
+<ul>
+	<li data-ng-repeat="v in venues.response.minivenues"><pre>{{v.name}} 
+{{v.location.address}}
+{{v.location.city}}, {{v.location.state}} {{v.location.postalCode}}<pre></li>
+</ul>
