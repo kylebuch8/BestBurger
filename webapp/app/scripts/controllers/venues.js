@@ -1,8 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module('webappApp')
-	  .controller('VenuesCtrl', ['$scope', 'FoursquareSvc', function ($scope, FoursquareSvc) {
+	angular.module(Best.appName).controller('VenuesCtrl', ['$scope', 'FoursquareSvc', function ($scope, FoursquareSvc) {
 	    $scope.FoursquareSvc = FoursquareSvc;
 
 	    $scope.$watch('venue', function(newVenue) {
@@ -16,5 +15,5 @@
 				$scope.venues = newVenues;
 			}
 		});
-	  });
+	  }]);
 })();
