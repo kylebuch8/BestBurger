@@ -17,9 +17,8 @@
 							}
 						})
 						.success(function(data, status) {
-							alert('Boo');
 							FoursquareSvc.suggest = data;
-							//console.log(data);
+							console.log(data);
 						}).error(function(data, status, headers, config) {
 							console.log('there was an error with the foursquare service');
 							console.log('url: ' + config.url);
