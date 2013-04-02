@@ -35,6 +35,13 @@
                 });
         }])
         .run(['$rootScope', '$location', function($rootScope, $location) {
+            /*
+             * this is for android
+             *
+             * rather than creating an exit app function in each module that we'll
+             * need to exit the app from, this will allow us to use the same
+             * function globally
+             */
             $rootScope.exitApp = function() {
                 navigator.app.exitApp();
             };
