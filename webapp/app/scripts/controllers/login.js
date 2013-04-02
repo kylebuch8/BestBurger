@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module(Best.appName).controller('LoginCtrl', ['$scope', '$location', function($scope, $location) {
+	angular.module(Best.appName).controller('LoginCtrl', ['$rootScope', '$scope', '$location', function($rootScope, $scope, $location) {
 		document.addEventListener('deviceready', onDeviceReady, false);
 
 		function onDeviceReady() {
@@ -10,12 +10,8 @@
 			 * we'll need to take the user out of the application
 			 */
 			if (device.platform === 'Android') {
-				document.addEventListener('backbutton', onBackKeyDown, false);
+				document.addEventListener('backbutton', $rootScope.exitApp, false);
 			}
-		};
-
-		function onBackKeyDown() {
-			navigator.app.exitApp();
 		};
 
 		$scope.openChildBrowser = function(provider) {
@@ -63,7 +59,7 @@
     				 * enable the back button again. this will allow the user to go back to
     				 * the /login screen
     				 */
-    				document.removeEventListener('backbutton', onBackKeyDown, false);
+    				document.removeEventListener('backbutton', $rootScope.exitApp, false);
 
     				$scope.$apply(function() {
     					$location.path('/profile');

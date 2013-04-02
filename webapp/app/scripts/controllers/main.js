@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module(Best.appName).controller('MainCtrl', ['$scope', function($scope) {
+	angular.module(Best.appName).controller('MainCtrl', ['$rootScope', '$scope', function($rootScope, $scope) {
 		$scope.awesomeThings = [
 			'HTML5 Boilerplate',
 			'AngularJS',
@@ -16,12 +16,8 @@
 			 * we'll need to take the user out of the application
 			 */
 			if (device.platform === 'Android') {
-				document.addEventListener('backbutton', onBackKeyDown, false);
+				document.addEventListener('backbutton', $rootScope.exitApp, false);
 			}
-		};
-
-		function onBackKeyDown() {
-			navigator.app.exitApp();
 		};
 	}]);
 })();

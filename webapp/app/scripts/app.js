@@ -34,7 +34,11 @@
                     redirectTo : '/'
                 });
         }])
-        .run(['$location', function($location) {
+        .run(['$rootScope', '$location', function($rootScope, $location) {
+            $rootScope.exitApp = function() {
+                navigator.app.exitApp();
+            };
+
             if (!localStorage.getItem(Best.tokenString)) {
                 $location.path('/login');
             }
