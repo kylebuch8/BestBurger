@@ -1,8 +1,9 @@
 <p><a href="#/">Back</a></p>
-<label>Search <input data-ng-model="venue"></label>
+<p><a href="#/search">Search</a></p>
 
-<ul>
-	<li data-ng-repeat="v in venues.response.minivenues"><pre>{{v.name}} 
-{{v.location.address}}
-{{v.location.city}}, {{v.location.state}} {{v.location.postalCode}}<pre></li>
-</ul>
+<article data-ng-repeat="venue in venues" data-ng-click="click(venue.id)">
+	<p>{{venue.name}}</p>
+	<ul>
+		<li data-ng-repeat="burger in venue.burgers">{{burger.name}}</li>
+	</ul>
+</article>

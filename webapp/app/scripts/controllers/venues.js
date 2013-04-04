@@ -1,7 +1,10 @@
 (function() {
 	'use strict';
 
-	angular.module(Best.appName).controller('VenuesCtrl', ['$scope', '$location', function($scope, $location) {
+	angular.module(Best.appName).controller('VenuesCtrl', ['$rootScope', '$scope', '$location', function($rootScope, $scope, $location) {
+		// remove back button listener if it's there
+		document.removeEventListener('backbutton', $rootScope.exitApp, false);
+
 		$scope.venues = [
 			{
 				id: 1,
