@@ -2,10 +2,29 @@
 	'use strict';
 
 	angular.module(Best.appName).controller('MainCtrl', ['$rootScope', '$scope', function($rootScope, $scope) {
-		$scope.awesomeThings = [
-			'HTML5 Boilerplate',
-			'AngularJS',
-			'Karma'
+		$scope.feed = [
+			{
+				user: {
+					name: 'Kyle Buchanan'
+				},
+				burger: {
+					name: 'The Heartattack'
+				},
+				venue: {
+					name: 'City Beverage'
+				}
+			},
+			{
+				user: {
+					name: 'Luke Dary'
+				},
+				burger: {
+					name: 'The Meat Monster'
+				},
+				venue: {
+					name: 'City Beverage'
+				}
+			}
 		];
 
 		document.addEventListener('deviceready', onDeviceReady, false);
@@ -18,6 +37,6 @@
 			if (device.platform === 'Android') {
 				document.addEventListener('backbutton', $rootScope.exitApp, false);
 			}
-		};
+		}
 	}]);
 })();

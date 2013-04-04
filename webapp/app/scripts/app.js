@@ -26,9 +26,17 @@
                     templateUrl: 'views/rate.html',
                     controller: 'RateCtrl'
                 })
+                .when('/search', {
+                  templateUrl: 'views/search.html',
+                  controller: 'SearchCtrl'
+                })
                 .when('/venues', {
                   templateUrl: 'views/venues.html',
                   controller: 'VenuesCtrl'
+                })
+                .when('/venues/:id', {
+                  templateUrl: 'views/venue.html',
+                  controller: 'VenueCtrl'
                 })
                 .otherwise({
                     redirectTo : '/'

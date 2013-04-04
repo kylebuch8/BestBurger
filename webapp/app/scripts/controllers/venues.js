@@ -1,22 +1,50 @@
 (function() {
 	'use strict';
 
-	angular.module(Best.appName).controller('VenuesCtrl', ['$rootScope', '$scope', 'FoursquareSvc', function($rootScope, $scope, FoursquareSvc) {
-		// remove back button listener if it's there
-		document.removeEventListener('backbutton', $rootScope.exitApp, false);
-
-	    $scope.FoursquareSvc = FoursquareSvc;
-
-	    $scope.$watch('venue', function(newVenue) {
-			if(typeof(newVenue) !== 'undefined' && newVenue !== '') {
-				FoursquareSvc.suggestVenue(newVenue);
+	angular.module(Best.appName).controller('VenuesCtrl', ['$scope', '$location', function($scope, $location) {
+		$scope.venues = [
+			{
+				id: 1,
+				name: 'City Beverage',
+				burgers: [
+					{
+						name: 'The Heartattack'
+					},
+					{
+						name: 'The Meat Monster'
+					}
+				]
+			},
+			{
+				id: 2,
+				name: 'Bull McCabe\'s',
+				burgers: [
+					{
+						name: 'The Irish Burger'
+					},
+					{
+						name: 'Fried Egg Burger'
+					}
+				]
 			}
-		});
+		];
 
-		$scope.$watch('FoursquareSvc.suggest', function(newVenues) {
-			if(typeof(newVenues) !== 'undefined') {
-				$scope.venues = newVenues;
-			}
-		});
-	  }]);
+		$scope.click = function(id) {
+			$location.path('/venues/' + id);
+		}
+
+		/*
+		 * get the user's location and bring back venues that we have
+		 * in our data base that are close to the user
+		 */
+		navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+		function onSuccess(position) {
+			console.log(position);
+		}
+
+		function onError(error) {
+			console.log(error);
+		}
+	}]);
 })();
