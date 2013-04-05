@@ -1,36 +1,11 @@
 (function() {
 	'use strict';
 
-	angular.module(Best.appName).controller('VenuesCtrl', ['$rootScope', '$scope', '$location', function($rootScope, $scope, $location) {
+	angular.module(Best.appName).controller('VenuesCtrl', ['$rootScope', '$scope', '$location', 'VenuesSvc', function($rootScope, $scope, $location, VenuesSvc) {
 		// remove back button listener if it's there
 		document.removeEventListener('backbutton', $rootScope.exitApp, false);
 
-		$scope.venues = [
-			{
-				id: 1,
-				name: 'City Beverage',
-				burgers: [
-					{
-						name: 'The Heartattack'
-					},
-					{
-						name: 'The Meat Monster'
-					}
-				]
-			},
-			{
-				id: 2,
-				name: 'Bull McCabe\'s',
-				burgers: [
-					{
-						name: 'The Irish Burger'
-					},
-					{
-						name: 'Fried Egg Burger'
-					}
-				]
-			}
-		];
+		$scope.venues = VenuesSvc.getVenues();
 
 		$scope.click = function(id) {
 			$location.path('/venues/' + id);
