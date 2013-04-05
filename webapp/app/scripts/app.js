@@ -8,7 +8,7 @@
     };
 
     angular.module(Best.appName, [])
-        .config(['$routeProvider', function($routeProvider) {
+        .config(['$routeProvider', '$compileProvider', function($routeProvider, $compileProvider) {
             $routeProvider
                 .when('/', {
                     templateUrl : 'views/main.html',
@@ -27,20 +27,26 @@
                     controller: 'RateCtrl'
                 })
                 .when('/search', {
-                  templateUrl: 'views/search.html',
-                  controller: 'SearchCtrl'
+                    templateUrl: 'views/search.html',
+                    controller: 'SearchCtrl'
                 })
                 .when('/venues', {
-                  templateUrl: 'views/venues.html',
-                  controller: 'VenuesCtrl'
+                    templateUrl: 'views/venues.html',
+                    controller: 'VenuesCtrl'
                 })
-                .when('/venues/:id', {
-                  templateUrl: 'views/venue.html',
-                  controller: 'VenueCtrl'
+                .when('/venues/:venueId', {
+                    templateUrl: 'views/venue.html',
+                    controller: 'VenueCtrl'
+                })
+                .when('/venues/:venueId/burgers/add', {
+                    templateUrl: 'views/addburger.html',
+                    controller: 'AddBurgerCtrl'
                 })
                 .otherwise({
                     redirectTo : '/'
                 });
+
+            $compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
         }])
         .run(['$rootScope', '$location', function($rootScope, $location) {
             /*

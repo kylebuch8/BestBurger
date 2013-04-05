@@ -3,7 +3,7 @@
 
 	angular.module(Best.appName).controller('VenueCtrl', ['$scope', '$routeParams', '$filter', 'VenuesSvc', function($scope, $routeParams, $filter, VenuesSvc) {
 		$scope.venue = $filter('filter')(VenuesSvc.getVenues(), {
-			id : $routeParams.id
+			id : $routeParams.venueId
 		})[0];
 
 		$scope.click = function(id) {
