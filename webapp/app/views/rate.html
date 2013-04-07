@@ -1,7 +1,10 @@
-<p>Burger: {{burger.name}}</p>
-<p>Location: {{location}}</p>
+<a href="#/venues/{{venue.id}}/burger/{{burger.id}}">Back</a>
+<h1>{{burger.name}}</h1>
+<section>
+	<h3>{{venue.name}}</h3>
+</section>
 <div>
-	<select name="rating" data-ng-model="rating">
+	<select name="rating" data-ng-model="rating" required>
 		<option value="">Rating</option>
 		<option value="1">1</option>
 		<option value="2">2</option>

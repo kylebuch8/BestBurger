@@ -15,16 +15,12 @@
                     controller : 'MainCtrl'
                 })
                 .when('/login', {
-                  templateUrl: 'views/login.html',
-                  controller: 'LoginCtrl'
+                    templateUrl: 'views/login.html',
+                    controller: 'LoginCtrl'
                 })
                 .when('/profile', {
                     templateUrl: 'views/profile.html',
                     controller: 'ProfileCtrl'
-                })
-                .when('/rate', {
-                    templateUrl: 'views/rate.html',
-                    controller: 'RateCtrl'
                 })
                 .when('/search', {
                     templateUrl: 'views/search.html',
@@ -38,9 +34,17 @@
                     templateUrl: 'views/venue.html',
                     controller: 'VenueCtrl'
                 })
-                .when('/venues/:venueId/burgers/add', {
+                .when('/venues/:venueId/burger/add', {
                     templateUrl: 'views/addburger.html',
                     controller: 'AddBurgerCtrl'
+                })
+                .when('/venues/:venueId/burger/:burgerId', {
+                    templateUrl: 'views/burger.html',
+                    controller: 'BurgerCtrl'
+                })
+                .when('/venues/:venueId/burger/:burgerId/rate', {
+                    templateUrl: 'views/rate.html',
+                    controller: 'RateCtrl'
                 })
                 .otherwise({
                     redirectTo : '/'
