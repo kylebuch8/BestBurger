@@ -64,3 +64,5 @@ android/project.properties
 *.sublime-workspace
 
 *.xcuserstate
+
+*.xcuserstate

@@ -10,12 +10,26 @@
                     {
                         id: 1,
                         name: 'The Heartattack',
+                        totalRatings: 0,
+                        avgRating: 0,
                         ratings: []
                     },
                     {
                         id: 2,
                         name: 'The Meat Monster',
-                        ratings: []
+                        totalRatings: 1,
+                        avgRating: 5,
+                        ratings: [
+                            {
+                                id: 2,
+                                user: {
+                                    name: 'Kyle Buchanan'
+                                },
+                                rating: 5,
+                                comments: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, blanditiis neque sit dolorum recusandae suscipit cumque incidunt libero animi voluptatem quasi earum beatae sunt nam doloremque nostrum culpa quas quod.',
+                                createDate: '1/1/2013'
+                            }
+                        ]
                     }
                 ]
             },
@@ -26,11 +40,15 @@
                     {
                         id: 3,
                         name: 'The Irish Burger',
+                        totalRatings: 0,
+                        avgRating: 0,
                         ratings: []
                     },
                     {
                         id: 4,
                         name: 'Fried Egg Burger',
+                        totalRatings: 0,
+                        avgRating: 0,
                         ratings: []
                     }
                 ]
@@ -85,6 +103,18 @@
                             };
 
                             burger.ratings.push(ratingObj);
+
+                            /*
+                             * increment the number of ratings
+                             */
+                            burger.totalRatings += 1;
+
+                            /*
+                             * recalculate the average
+                             *
+                             * this will need to be returned by the server
+                             */
+                            // burger.avgRating = something
 
                             return ratingObj;
                         }
