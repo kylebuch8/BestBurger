@@ -10,7 +10,7 @@
     angular.module(Best.appName, [])
         .config(['$routeProvider', '$compileProvider', function($routeProvider, $compileProvider) {
             $routeProvider
-                .when('/', {
+                .when('/home', {
                     templateUrl : 'views/main.html',
                     controller : 'MainCtrl'
                 })
@@ -22,13 +22,13 @@
                     templateUrl: 'views/profile.html',
                     controller: 'ProfileCtrl'
                 })
-                .when('/search', {
-                    templateUrl: 'views/search.html',
-                    controller: 'SearchCtrl'
-                })
                 .when('/venues', {
                     templateUrl: 'views/venues.html',
                     controller: 'VenuesCtrl'
+                })
+                .when('/venues/search', {
+                    templateUrl: 'views/search.html',
+                    controller: 'SearchCtrl'
                 })
                 .when('/venues/:venueId', {
                     templateUrl: 'views/venue.html',
@@ -47,7 +47,7 @@
                     controller: 'RateCtrl'
                 })
                 .otherwise({
-                    redirectTo : '/'
+                    redirectTo : '/home'
                 });
 
             $compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);

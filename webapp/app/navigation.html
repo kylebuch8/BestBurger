@@ -1,8 +1,55 @@
 <div data-ng-controller="NavCtrl">
-	Current: {{id}}
 	<ul>
-		<li>First</li>
-		<li>Second</li>
-		<li>Third</li>
+		<li data-ng-class="navClass('home')"><a href="#/home">Home</a></li>
+		<li data-ng-class="navClass('profile')"><a href="#/profile">Profile</a></li>
+		<li data-ng-class="navClass('home')"><a href="#/venues">Venues</a></li>
+		<!--
+		<li data-ng-class="navClass('home')"><a data-ng-click="#/burgers">Burgers</a></li>
+		<li data-ng-show="localStorage.getItem(Best.tokenString)"><a data-ng-click="">Login</a></li>
+		<li data-ng-hide="localStorage.getItem(Best.tokenString)"><a data-ng-click="">Logout</a></li>
+		-->
 	</ul>
+	<p data-ng-show="!isRoot"><a href="" data-ng-click="goBack()">Back</a></p>
+	<!--<p data-ng-show="isRoot"><a href="" data-ng-click="goHome()">Back</a></p>-->
 </div>
+<!--
+.when('/', {
+                    templateUrl : 'views/main.html',
+                    controller : 'MainCtrl'
+                })
+     data-ng-click=""           .when('/login', {
+                    templateUrl: 'views/login.html',
+                    controller: 'LoginCtrl'
+                })
+                .when('/profile', {
+                    templateUrl: 'views/profile.html',
+                    controller: 'ProfileCtrl'
+                })
+                .when('/search', {
+                    templateUrl: 'views/search.html',
+                    controller: 'SearchCtrl'
+                })
+                .when('/venues', {
+                    templateUrl: 'views/venues.html',
+                    controller: 'VenuesCtrl'
+                })
+                .when('/venues/:venueId', {
+                    templateUrl: 'views/venue.html',
+                    controller: 'VenueCtrl'
+                })
+                .when('/venues/:venueId/burger/add', {
+                    templateUrl: 'views/addburger.html',
+                    controller: 'AddBurgerCtrl'
+                })
+                .when('/venues/:venueId/burger/:burgerId', {
+                    templateUrl: 'views/burger.html',
+                    controller: 'BurgerCtrl'
+                })
+                .when('/venues/:venueId/burger/:burgerId/rate', {
+                    templateUrl: 'views/rate.html',
+                    controller: 'RateCtrl'
+                })
+                .otherwise({
+                    redirectTo : '/'
+                });
+-->
