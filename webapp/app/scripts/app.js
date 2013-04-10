@@ -8,39 +8,49 @@
     };
 
     angular.module(Best.appName, [])
-        .config(['$routeProvider', function($routeProvider) {
+        .config(['$routeProvider', '$compileProvider', function($routeProvider, $compileProvider) {
             $routeProvider
                 .when('/', {
                     templateUrl : 'views/main.html',
                     controller : 'MainCtrl'
                 })
                 .when('/login', {
-                  templateUrl: 'views/login.html',
-                  controller: 'LoginCtrl'
+                    templateUrl: 'views/login.html',
+                    controller: 'LoginCtrl'
                 })
                 .when('/profile', {
                     templateUrl: 'views/profile.html',
                     controller: 'ProfileCtrl'
                 })
-                .when('/rate', {
-                    templateUrl: 'views/rate.html',
-                    controller: 'RateCtrl'
-                })
                 .when('/search', {
-                  templateUrl: 'views/search.html',
-                  controller: 'SearchCtrl'
+                    templateUrl: 'views/search.html',
+                    controller: 'SearchCtrl'
                 })
                 .when('/venues', {
-                  templateUrl: 'views/venues.html',
-                  controller: 'VenuesCtrl'
+                    templateUrl: 'views/venues.html',
+                    controller: 'VenuesCtrl'
                 })
-                .when('/venues/:id', {
-                  templateUrl: 'views/venue.html',
-                  controller: 'VenueCtrl'
+                .when('/venues/:venueId', {
+                    templateUrl: 'views/venue.html',
+                    controller: 'VenueCtrl'
+                })
+                .when('/venues/:venueId/burger/add', {
+                    templateUrl: 'views/addburger.html',
+                    controller: 'AddBurgerCtrl'
+                })
+                .when('/venues/:venueId/burger/:burgerId', {
+                    templateUrl: 'views/burger.html',
+                    controller: 'BurgerCtrl'
+                })
+                .when('/venues/:venueId/burger/:burgerId/rate', {
+                    templateUrl: 'views/rate.html',
+                    controller: 'RateCtrl'
                 })
                 .otherwise({
                     redirectTo : '/'
                 });
+
+            $compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
         }])
         .run(['$rootScope', '$location', function($rootScope, $location) {
             /*

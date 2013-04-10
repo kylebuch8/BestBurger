@@ -1,10 +1,12 @@
 <p><a href="#/venues">Back</a></p>
-<p><a data-ng-href="#/venues/{{venue.id}}/burgers/add">Add a Burger</a></p>
+<p><a data-ng-href="#/venues/{{venue.id}}/burger/add">Add a Burger</a></p>
 <h1>{{venue.name}}</h1>
 <section>
 	<h3>Burgers</h3>
 	<article data-ng-repeat="burger in venue.burgers" data-ng-click="click(burger.id)">
 		<h5>{{burger.name}}</h5>
+		<p>{{burger.totalRatings}} rating<span data-ng-hide="burger.totalRatings == 1">s</span></p>
+		<p data-ng-show="burger.totalRatings > 0">Average rating: {{burger.avgRating}}</p>
 		<hr>
 	</article>
 </section>

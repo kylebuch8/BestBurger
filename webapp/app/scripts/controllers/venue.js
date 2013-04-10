@@ -1,13 +1,13 @@
 (function() {
 	'use strict';
 
-	angular.module(Best.appName).controller('VenueCtrl', ['$scope', '$routeParams', '$filter', 'VenuesSvc', function($scope, $routeParams, $filter, VenuesSvc) {
+	angular.module(Best.appName).controller('VenueCtrl', ['$scope', '$routeParams', '$filter', '$location', 'VenuesSvc', function($scope, $routeParams, $filter, $location, VenuesSvc) {
 		$scope.venue = $filter('filter')(VenuesSvc.getVenues(), {
-			id : $routeParams.id
+			id : $routeParams.venueId
 		})[0];
 
 		$scope.click = function(id) {
-			console.log(id);
+			$location.path($location.path() + '/burger/' + id);
 		}
 	}]);
 })();

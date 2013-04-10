@@ -1,0 +1,17 @@
+<a href="#/venues/{{venue.id}}">Back</a>
+<h1>{{burger.name}}</h1>
+<section>
+	<h3>{{venue.name}}</h3>
+</section>
+<a href="#/venues/{{venue.id}}/burger/{{burger.id}}/rate">Rate this burger</a>
+<h4>{{burger.totalRatings}} Rating<span data-ng-hide="burger.totalRatings == 1">s</span></h4>
+<p data-ng-show="burger.totalRatings == 0">Be the first to rate it</p>
+<section data-ng-show="burger.ratings.length > 0">
+	<article data-ng-repeat="rating in burger.ratings">
+		<h4>{{rating.rating}} stars</h4>
+		<h5>{{rating.user.name}}</h5>
+		<h6>{{rating.createDate}}</h6>
+		<p>{{rating.comments}}</p>
+		<hr>
+	</article>
+</section>
