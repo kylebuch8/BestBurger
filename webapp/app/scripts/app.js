@@ -2,9 +2,13 @@
     'use strict';
 
     window.Best = {
-        appName : 'BestBurger',
-        authProvider : 'authProvider',
-        tokenString : 'token',
+        appName: 'BestBurger',
+        strings: {
+            authProvider: 'authProvider',
+            token: 'token',
+            fullname: 'fullname',
+            picture: 'picture'
+        }
     };
 
     angular.module(Best.appName, [])
@@ -64,7 +68,7 @@
                 navigator.app.exitApp();
             };
 
-            if (!localStorage.getItem(Best.tokenString)) {
+            if (!localStorage.getItem(Best.strings.token)) {
                 $location.path('/login');
             }
         }]);

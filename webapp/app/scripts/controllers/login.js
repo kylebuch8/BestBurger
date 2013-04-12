@@ -45,8 +45,8 @@
 
     				var token = result[1];
 
-    				localStorage.setItem(Best.authProvider, provider);
-    				localStorage.setItem(Best.tokenString, token);
+    				localStorage.setItem(Best.strings.authProvider, provider);
+    				localStorage.setItem(Best.strings.token, token);
 
     				/*
     				 * close the inappbrowser
