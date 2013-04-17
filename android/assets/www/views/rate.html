@@ -4,7 +4,7 @@
 	<h3>{{venue.name}}</h3>
 </section>
 <div>
-	<select name="rating" data-ng-model="rating" required="">
+	<select name="rating" data-ng-model="rating" required>
 		<option value="">Rating</option>
 		<option value="1">1</option>
 		<option value="2">2</option>
@@ -14,6 +14,10 @@
 	</select>
 </div>
 <textarea name="comments" cols="30" rows="10" placeholder="Comments" data-ng-model="comments"></textarea>
+<div>
+	<button data-ng-click="takePicture()">Take a Picture</button>
+</div>
+<img id="image" src="" style="display: none; width: 60px; height: 60px;">
 <div>
 	<button data-ng-click="submit()">Submit</button>
 </div>
