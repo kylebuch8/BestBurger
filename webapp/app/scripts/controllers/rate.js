@@ -18,6 +18,13 @@
 			});
 		};
 
+		$scope.getPicture = function() {
+			navigator.camera.getPicture(onCameraSuccess, onCameraFail, {
+				sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+				destinationType: Camera.DestinationType.FILE_URI
+			});
+		}
+
 		function onCameraSuccess(imageURI) {
 			var image = document.getElementById('image');
 			image.style.display = 'block';
