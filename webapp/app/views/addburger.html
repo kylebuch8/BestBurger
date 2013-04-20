@@ -1,10 +1,15 @@
-<p><a href="#/venues/{{venue.id}}">Back</a></p>
-<h1>Add a Burger</h1>
-<h3>{{venue.name}}</h3>
-<form data-ng-submit="submit()" data-ng-show="!burgerAdded">
-	<input type="text" name="burgerName" id="burgerName" placeholder="Burger Name" required data-ng-model="burgerName">
-	<button>Add</button>
-</form>
-<section data-ng-show="burgerAdded">
-	<h4>Success!</h4>
+<nav class="navbar">
+	<a href="#/venues/{{venue.id}}">Back</a>
+</nav>
+
+<section class="container overthrow">
+	<h1>Add a Burger</h1>
+	<h3>{{venue.name}}</h3>
+	<form data-ng-submit="submit()" data-ng-show="!burgerAdded">
+		<input type="text" name="burgerName" id="burgerName" placeholder="Burger Name" required data-ng-model="burgerName">
+		<button>Add</button>
+	</form>
+	<section data-ng-show="burgerAdded">
+		<h4>Success!</h4>
+	</section>
 </section>

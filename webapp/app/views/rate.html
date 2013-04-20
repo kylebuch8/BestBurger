@@ -1,24 +1,29 @@
-<a href="#/venues/{{venue.id}}/burger/{{burger.id}}">Back</a>
-<h1>{{burger.name}}</h1>
-<section>
-	<h3>{{venue.name}}</h3>
+<nav class="navbar">
+	<a href="#/venues/{{venue.id}}/burger/{{burger.id}}">Back</a>
+</nav>
+
+<section class="container overthrow">
+	<h1>{{burger.name}}</h1>
+	<section>
+		<h3>{{venue.name}}</h3>
+	</section>
+	<div>
+		<select name="rating" data-ng-model="rating" required>
+			<option value="">Rating</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+	</div>
+	<textarea name="comments" cols="30" rows="10" placeholder="Comments" data-ng-model="comments"></textarea>
+	<div>
+		<button data-ng-click="takePicture()">Take a Picture</button>
+		<button data-ng-click="getPicture()">Get Picture From Album</button>
+	</div>
+	<img id="image" src="" style="display: none; width: 60px; height: 60px;">
+	<div>
+		<button data-ng-click="submit()">Submit</button>
+	</div>
 </section>
-<div>
-	<select name="rating" data-ng-model="rating" required>
-		<option value="">Rating</option>
-		<option value="1">1</option>
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-	</select>
-</div>
-<textarea name="comments" cols="30" rows="10" placeholder="Comments" data-ng-model="comments"></textarea>
-<div>
-	<button data-ng-click="takePicture()">Take a Picture</button>
-	<button data-ng-click="getPicture()">Get Picture From Album</button>
-</div>
-<img id="image" src="" style="display: none; width: 60px; height: 60px;">
-<div>
-	<button data-ng-click="submit()">Submit</button>
-</div>

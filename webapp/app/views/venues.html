@@ -1,9 +1,13 @@
-<p><a href="#/">Back</a></p>
-<p><a href="#/search">Search</a></p>
+<nav class="navbar">
+	<a class="pull-right" href="#/search">Search</a>
+	<a href="#/">Back</a>
+</nav>
 
-<article data-ng-repeat="venue in venues" data-ng-click="click(venue.id)">
-	<p>{{venue.name}}</p>
-	<ul>
-		<li data-ng-repeat="burger in venue.burgers">{{burger.name}}</li>
-	</ul>
-</article>
+<section class="container overthrow">
+	<article data-ng-repeat="venue in venues" data-ng-click="click(venue.id)">
+		<p>{{venue.name}}</p>
+		<ul>
+			<li data-ng-repeat="burger in venue.burgers">{{burger.name}}</li>
+		</ul>
+	</article>
+</section>
