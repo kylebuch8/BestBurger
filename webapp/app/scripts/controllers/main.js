@@ -1,8 +1,12 @@
 (function() {
 	'use strict';
 
-	angular.module(Best.appName).controller('MainCtrl', ['$rootScope', '$scope', 'RatingsSvc', function($rootScope, $scope, RatingsSvc) {
+	angular.module(Best.appName).controller('MainCtrl', ['$rootScope', '$scope', '$location', 'RatingsSvc', function($rootScope, $scope, $location, RatingsSvc) {
 		$scope.feed = RatingsSvc.getRatings();
+
+		$scope.viewRating = function(id) {
+			$location.path('rating/' + id);
+		};
 
 		document.addEventListener('deviceready', onDeviceReady, false);
 

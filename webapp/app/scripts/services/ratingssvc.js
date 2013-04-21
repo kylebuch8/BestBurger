@@ -4,9 +4,10 @@
 (function() {
     'use strict';
 
-    angular.module(Best.appName).factory('RatingsSvc', [function() {
+    angular.module(Best.appName).factory('RatingsSvc', ['$filter', function($filter) {
         var RatingsSvc = {
-            getRatings: getRatings
+            getRatings: getRatings,
+            getRating: getRating
         };
 
         function getRatings() {
@@ -68,7 +69,7 @@
                     createDate: 'April 15th, 2013'
                 },
                 {
-                    id: 2,
+                    id: 5,
                     user: {
                         name: 'Luke Dary'
                     },
@@ -82,7 +83,7 @@
                     createDate: 'April 15th, 2013'
                 },
                 {
-                    id: 1,
+                    id: 6,
                     user: {
                         name: 'Kyle Buchanan'
                     },
@@ -96,7 +97,7 @@
                     createDate: 'April 16th, 2013'
                 },
                 {
-                    id: 2,
+                    id: 7,
                     user: {
                         name: 'Luke Dary'
                     },
@@ -110,7 +111,7 @@
                     createDate: 'April 15th, 2013'
                 },
                 {
-                    id: 3,
+                    id: 8,
                     user: {
                         name: 'Luke Dary'
                     },
@@ -124,7 +125,7 @@
                     createDate: 'April 15th, 2013'
                 },
                 {
-                    id: 4,
+                    id: 9,
                     user: {
                         name: 'Luke Dary'
                     },
@@ -138,7 +139,7 @@
                     createDate: 'April 15th, 2013'
                 },
                 {
-                    id: 2,
+                    id: 10,
                     user: {
                         name: 'Luke Dary'
                     },
@@ -152,7 +153,7 @@
                     createDate: 'April 15th, 2013'
                 },
                 {
-                    id: 1,
+                    id: 11,
                     user: {
                         name: 'Kyle Buchanan'
                     },
@@ -166,7 +167,7 @@
                     createDate: 'April 16th, 2013'
                 },
                 {
-                    id: 2,
+                    id: 12,
                     user: {
                         name: 'Luke Dary'
                     },
@@ -180,7 +181,7 @@
                     createDate: 'April 15th, 2013'
                 },
                 {
-                    id: 3,
+                    id: 13,
                     user: {
                         name: 'Luke Dary'
                     },
@@ -194,7 +195,7 @@
                     createDate: 'April 15th, 2013'
                 },
                 {
-                    id: 4,
+                    id: 14,
                     user: {
                         name: 'Luke Dary'
                     },
@@ -208,7 +209,7 @@
                     createDate: 'April 15th, 2013'
                 },
                 {
-                    id: 2,
+                    id: 15,
                     user: {
                         name: 'Luke Dary'
                     },
@@ -224,6 +225,17 @@
             ];
 
             return ratings;
+        }
+
+        function getRating(id) {
+            var ratings = RatingsSvc.getRatings(),
+                rating = $filter('filter')(ratings, function(rating) {
+                    if (rating.id == id) {
+                        return rating;
+                    }
+                });
+
+            return rating[0];
         }
 
         return RatingsSvc;

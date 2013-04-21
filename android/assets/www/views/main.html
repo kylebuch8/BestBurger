@@ -3,7 +3,7 @@
 </nav>
 
 <section class="container overthrow">
-	<div data-ng-repeat="item in feed">
+	<div data-ng-repeat="item in feed" data-ng-click="viewRating(item.id)">
 		<p>
 			{{item.burger.name}}<br>
 			{{item.venue.name}}
