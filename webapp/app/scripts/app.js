@@ -50,6 +50,10 @@
                     templateUrl: 'views/rate.html',
                     controller: 'RateCtrl'
                 })
+                .when('/rating/:ratingId', {
+                    templateUrl: 'views/rating.html',
+                    controller: 'RatingCtrl'
+                })
                 .otherwise({
                     redirectTo : '/home'
                 });

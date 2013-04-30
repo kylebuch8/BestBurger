@@ -1,8 +1,13 @@
-<p><a href="#/venues">Back</a></p>
-<label>Search <input data-ng-model="venue"></label>
+<nav class="navbar">
+	<a href="#/venues">Back</a>
+</nav>
 
-<ul>
-	<li data-ng-repeat="v in venues.response.minivenues"><pre>{{v.name}} 
-{{v.location.address}}
-{{v.location.city}}, {{v.location.state}} {{v.location.postalCode}}<pre></li>
-</ul>
+<section class="container overthrow">
+	<label>Search <input data-ng-model="venue"></label>
+
+	<ul>
+		<li data-ng-repeat="v in venues.response.minivenues"><pre>{{v.name}} 
+	{{v.location.address}}
+	{{v.location.city}}, {{v.location.state}} {{v.location.postalCode}}<pre></pre></pre></li>
+	</ul>
+</section>

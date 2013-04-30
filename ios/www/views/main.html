@@ -1,10 +1,14 @@
-<a href="#/venues">Rate a Burger</a>
+<nav class="navbar">
+	<a href="#/venues" class="pull-right">Rate a Burger</a>
+</nav>
 
-<div data-ng-repeat="item in feed">
-	<p>
-		{{item.burger.name}}<br>
-		{{item.venue.name}}
-	</p>
-	<p>{{item.user.name}}</p>
-	<hr>
-</div>
+<section class="container overthrow">
+	<div data-ng-repeat="item in feed" data-ng-click="viewRating(item.id)">
+		<p>
+			{{item.burger.name}}<br>
+			{{item.venue.name}}
+		</p>
+		<p>{{item.user.name}}</p>
+		<hr>
+	</div>
+</section>

@@ -1,31 +1,12 @@
 (function() {
 	'use strict';
 
-	angular.module(Best.appName).controller('MainCtrl', ['$rootScope', '$scope', function($rootScope, $scope) {
-		$scope.feed = [
-			{
-				user: {
-					name: 'Kyle Buchanan'
-				},
-				burger: {
-					name: 'The Heartattack'
-				},
-				venue: {
-					name: 'City Beverage'
-				}
-			},
-			{
-				user: {
-					name: 'Luke Dary'
-				},
-				burger: {
-					name: 'The Meat Monster'
-				},
-				venue: {
-					name: 'City Beverage'
-				}
-			}
-		];
+	angular.module(Best.appName).controller('MainCtrl', ['$rootScope', '$scope', '$location', 'RatingsSvc', function($rootScope, $scope, $location, RatingsSvc) {
+		$scope.feed = RatingsSvc.getRatings();
+
+		$scope.viewRating = function(id) {
+			$location.path('rating/' + id);
+		};
 
 		document.addEventListener('deviceready', onDeviceReady, false);
 

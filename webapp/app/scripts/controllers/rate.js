@@ -10,6 +10,31 @@
 			id : $routeParams.burgerId
 		})[0];
 
+		$scope.takePicture = function() {
+			navigator.camera.getPicture(onCameraSuccess, onCameraFail, {
+				quality: 50,
+				sourceType: Camera.PictureSourceType.CAMERA,
+				destinationType: Camera.DestinationType.FILE_URI
+			});
+		};
+
+		$scope.getPicture = function() {
+			navigator.camera.getPicture(onCameraSuccess, onCameraFail, {
+				sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+				destinationType: Camera.DestinationType.FILE_URI
+			});
+		}
+
+		function onCameraSuccess(imageURI) {
+			var image = document.getElementById('image');
+			image.style.display = 'block';
+			image.src = imageURI;
+		}
+
+		function onCameraFail(message) {
+			console.log('camera failed: ' + message);
+		}
+
 		$scope.submit = function() {
 			var rating = VenuesSvc.rateBurger({
 				venueId: $scope.venue.id,
