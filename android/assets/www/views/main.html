@@ -1,14 +1,23 @@
-<nav class="navbar">
+<menu data-ng-class="menuState">
+	<li><a href="#">Profile</a></li>
+	<li><a href="#">Settings</a></li>
+	<li><a href="#">Find Friends</a></li>
+</menu>
+
+<nav class="navbar" data-ng-class="menuState">
+	<a href="#" class="pull-left" data-ng-click="toggleMenu($event)">Menu</a>
 	<a href="#/venues" class="pull-right">Rate a Burger</a>
 </nav>
 
-<section class="container overthrow">
-	<div data-ng-repeat="item in feed" data-ng-click="viewRating(item.id)">
-		<p>
-			{{item.burger.name}}<br>
-			{{item.venue.name}}
-		</p>
-		<p>{{item.user.name}}</p>
-		<hr>
+<section class="container overthrow" data-ng-class="menuState">
+	<div style="overflow-x: hidden">
+		<div data-ng-repeat="item in feed" data-ng-click="viewRating(item.id)">
+			<p>
+				{{item.burger.name}}<br>
+				{{item.venue.name}}
+			</p>
+			<p>{{item.user.name}}</p>
+			<hr>
+		</div>
 	</div>
 </section>

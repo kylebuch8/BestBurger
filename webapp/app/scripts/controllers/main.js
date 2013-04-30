@@ -4,6 +4,11 @@
 	angular.module(Best.appName).controller('MainCtrl', ['$rootScope', '$scope', '$location', 'RatingsSvc', function($rootScope, $scope, $location, RatingsSvc) {
 		$scope.feed = RatingsSvc.getRatings();
 
+		$scope.toggleMenu = function(event) {
+			event.preventDefault();
+			$scope.menuState = ($scope.menuState === 'open') ? '' : 'open';
+		};
+
 		$scope.viewRating = function(id) {
 			$location.path('rating/' + id);
 		};

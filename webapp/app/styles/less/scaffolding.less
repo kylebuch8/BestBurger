@@ -3,12 +3,18 @@ body {
 }
 
 section.container {
+	background: #fff;
 	padding-top: @navbarHeight;
+	overflow-x: hidden;
+}
+
+section.container.open {
+	-webkit-transform: translateX(240px);
 }
 
 .overflowscrolling section.container {
 	padding-top: 0;
-	position: absolute;
+	position: fixed;
 	top: @navbarHeight;
 	bottom: 0;
 	left: 0;
