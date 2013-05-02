@@ -5,19 +5,23 @@
 </menu>
 
 <nav class="navbar" data-ng-class="menuState">
-	<a href="#" class="pull-left" data-ng-click="toggleMenu($event)">Menu</a>
+	<button data-ng-click="toggleMenu($event)">
+		<span class="bar"></span>
+		<span class="bar"></span>
+		<span class="bar"></span>
+	</button>
 	<a href="#/venues" class="pull-right">Rate a Burger</a>
 </nav>
 
 <section class="container overthrow" data-ng-class="menuState">
-	<div style="overflow-x: hidden">
-		<div data-ng-repeat="item in feed" data-ng-click="viewRating(item.id)">
+	<div data-ng-repeat="item in feed" data-ng-click="viewRating(item.id)">
+		<div class="content">
 			<p>
 				{{item.burger.name}}<br>
 				{{item.venue.name}}
 			</p>
 			<p>{{item.user.name}}</p>
-			<hr>
 		</div>
+		<hr>
 	</div>
 </section>

@@ -6,7 +6,7 @@
 	<h1>Add a Burger</h1>
 	<h3>{{venue.name}}</h3>
 	<form data-ng-submit="submit()" data-ng-show="!burgerAdded">
-		<input type="text" name="burgerName" id="burgerName" placeholder="Burger Name" required="" data-ng-model="burgerName">
+		<input type="text" name="burgerName" id="burgerName" placeholder="Burger Name" required data-ng-model="burgerName">
 		<button>Add</button>
 	</form>
 	<section data-ng-show="burgerAdded">

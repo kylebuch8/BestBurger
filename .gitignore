@@ -72,3 +72,15 @@ android/project.properties
 *.xcuserstate
 
 *.xcuserstate
+
+android/bin/AndroidManifest.xml
+
+android/bin/AndroidManifest.xml
+
+android/bin/classes/com/kristyandkyle/bestburger/R$xml.class
+
+android/bin/classes/com/kristyandkyle/bestburger/R.class
+
+android/gen/com/kristyandkyle/bestburger/R.java
+
+ios/BestBurger.xcodeproj/project.xcworkspace/xcuserdata/kylebuchanan.xcuserdatad/UserInterfaceState.xcuserstate

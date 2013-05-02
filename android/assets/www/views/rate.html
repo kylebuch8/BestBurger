@@ -8,7 +8,7 @@
 		<h3>{{venue.name}}</h3>
 	</section>
 	<div>
-		<select name="rating" data-ng-model="rating" required="">
+		<select name="rating" data-ng-model="rating" required>
 			<option value="">Rating</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -22,7 +22,7 @@
 		<button data-ng-click="takePicture()">Take a Picture</button>
 		<button data-ng-click="getPicture()">Get Picture From Album</button>
 	</div>
-	<img id="image" src="" style="display: none; width: 60px; height: 60px">
+	<img id="image" src="" style="display: none; width: 60px; height: 60px;">
 	<div>
 		<button data-ng-click="submit()">Submit</button>
 	</div>

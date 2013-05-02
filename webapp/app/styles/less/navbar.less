@@ -8,11 +8,22 @@
 	color: @navbarFontColor;
 	border-bottom: 1px solid #e5e5e5;
 	z-index: 1030;
+	.translate3d(0, 0, 0);
+	-webkit-transition: -webkit-transform .2s ease-in-out;
+	-webkit-backface-visibility: hidden;
+	-webkit-perspective: 1000;
 }
 
 .navbar.open {
 	left: 240px;
 	right: -240px;
+}
+
+.overflowscrolling .navbar.open,
+.no-touch .navbar.open {
+	left: 0;
+	right: 0;
+	.translate(240px, 0);
 }
 
 .overflowscrolling .navbar {
@@ -21,4 +32,23 @@
 
 .navbar a {
 	color: @navbarFontColor;
+}
+
+.navbar button {
+	background: none;
+	border: none;
+	width: @navbarHeight;
+	height: @navbarHeight;
+	padding: 0;
+}
+
+.navbar button .bar {
+	display: block;
+	margin-left: 13px;
+	width: 21px;
+	height: 2px;
+	background: #999;
+	margin-bottom: 3px;
+	border: 1px solid #999;
+	border-radius: 0px;
 }

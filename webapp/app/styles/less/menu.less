@@ -4,13 +4,29 @@ menu {
 	background: #333;
 	width: 240px;
 	height: 900px;
+	left: 0;
 	top: 0;
 	margin: 0;
 	padding: 0;
+	z-index: -1;
+}
+
+.no-touch menu,
+.overflowscrolling menu {
+	.translate3d(0, 0, 0);
+	.transition(visibility 0s linear .2s);
+	-webkit-backface-visibility: hidden;
+	-webkit-perspective: 1000;
 }
 
 menu.open {
 	visibility: visible;
+	z-index: 1;
+}
+
+.no-touch menu.open,
+.overflowscrolling menu.open {
+	.transition(z-index 0s linear .2s);
 }
 
 menu li {
@@ -20,8 +36,7 @@ menu li {
 menu li a {
 	color: #ccc;
 	text-decoration: none;
-	width: 100%;
-	display: inline-block;
+	display: block;
 	padding: 15px;
 	border-bottom: 1px solid #666;
 }
