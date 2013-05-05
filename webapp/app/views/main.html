@@ -14,14 +14,18 @@
 </nav>
 
 <section class="container overthrow" data-ng-class="menuState">
-	<div data-ng-repeat="item in feed" data-ng-click="viewRating(item.id)">
+	<div class="list-item" data-ng-repeat="item in feed" data-ng-click="viewRating(item.id)">
 		<div class="content">
+			<div class="profile clearfix">
+				<img src="http://placehold.it/50x50" alt="" class="pull-left profile-img">
+				<h5>{{item.user.name}}</h6>
+				<h6 class="muted">Two days ago</h6>
+			</div>
+			<img src="http://placehold.it/350x150" alt="" class="feed-img">
 			<p>
 				{{item.burger.name}}<br>
 				{{item.venue.name}}
 			</p>
-			<p>{{item.user.name}}</p>
 		</div>
-		<hr>
 	</div>
 </section>
