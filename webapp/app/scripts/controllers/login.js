@@ -15,15 +15,16 @@
 		};
 
 		$scope.openChildBrowser = function(provider) {
-			var url = '';
+			var url = '',
+				redirectUri = 'http://bestapi.kristyandkyle.com/users/login';
 
 			switch (provider) {
 				case 'google':
-					url = 'https://accounts.google.com/o/oauth2/auth?response_type=token&scope=https://www.googleapis.com/auth/userinfo.profile&client_id=124967647113.apps.googleusercontent.com&redirect_uri=http://www.google.com/';
+					url = 'https://accounts.google.com/o/oauth2/auth?response_type=token&scope=https://www.googleapis.com/auth/userinfo.profile&client_id=124967647113.apps.googleusercontent.com&redirect_uri=' + redirectUri;
 				break;
 
 				case 'facebook':
-					url = 'https://www.facebook.com/dialog/oauth?client_id=212457378769328&redirect_uri=http://www.google.com/&scope=email&response_type=token';
+					url = 'https://www.facebook.com/dialog/oauth?client_id=212457378769328&redirect_uri=' + redirectUri + '&scope=email&response_type=token';
 				break;
 			}
 
