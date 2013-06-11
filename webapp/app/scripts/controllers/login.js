@@ -16,7 +16,7 @@
 
 		$scope.openChildBrowser = function(provider) {
 			var url = '',
-				redirectUri = 'http://bestapi.kristyandkyle.com/users/login';
+				redirectUri = 'http://bestapi.kristyandkyle.com/users/login/';
 
 			switch (provider) {
 				case 'google':
@@ -29,8 +29,8 @@
 			}
 
 			var ref = window.open(url, '_blank', 'location=yes');
-			ref.addEventListener('loadstart', function(event) {
-				var patt = new RegExp(/http:\/\/www.google.com\/[^;]+access_token=([^"]+)/),
+			ref.addEventListener('loadstop', function(event) {
+				var patt = new RegExp(/http:\/\/bestapi.kristyandkyle.com\/users\/login\/[^;]+access_token=([^"]+)/),
     				result = patt.exec(event.url);
 
     			console.log('Loading url: ' + event.url);

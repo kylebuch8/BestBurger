@@ -84,3 +84,13 @@ android/bin/classes/com/kristyandkyle/bestburger/R.class
 android/gen/com/kristyandkyle/bestburger/R.java
 
 ios/BestBurger.xcodeproj/project.xcworkspace/xcuserdata/kylebuchanan.xcuserdatad/UserInterfaceState.xcuserstate
+
+*.pbxproj
+
+*.plist
+
+*.pbxproj
+
+ios/BestBurger/BestBurger-Info.plist
+
+ios/BestBurger.xcodeproj/project.pbxproj
