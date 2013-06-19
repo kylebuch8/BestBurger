@@ -1,7 +1,9 @@
 (function() {
 	'use strict';
 
-	angular.module(Best.appName).controller('LoginCtrl', ['$rootScope', '$scope', '$location', function($rootScope, $scope, $location) {
+	angular.module(Best.appName).controller('LoginCtrl', ['$rootScope', '$scope', '$http', '$location', function($rootScope, $scope, $http, $location) {
+        storeCredentials();
+
 		document.addEventListener('deviceready', onDeviceReady, false);
 
 		function onDeviceReady() {
@@ -54,6 +56,11 @@
     				 */
     				ref.close();
 
+    				/*
+    				 * we need to record the authProvider and the user id
+    				 * before we do anything else
+    				 */
+
     				console.log("send to profile page");
 
     				/*
@@ -68,5 +75,30 @@
     			}
 			});
 		};
+
+        /*
+         * store the auth provider and the token in the database and
+         * return a user id
+         */
+        function storeCredentials(provider, token) {
+            // http://bestapi.kristyandkyle.com/users/login/#access_token=ya29.AHES6ZSeiHlSP9d0Iq1NKp9wkJWR3bU13n2OKsFrz2mIqMU42qA72z5u&token_type=Bearer&expires_in=3600
+            var provider = 'google',
+                token = 'ya29.AHES6ZSeiHlSP9d0Iq1NKp9wkJWR3bU13n2OKsFrz2mIqMU42qA72z5u';
+
+            var url = 'http://bestapi/users/storeCredentials',
+                data = {
+                    authProvider: provider,
+                    token: token
+                };
+
+            $http
+                .post(url, data)
+                .success(function(data, status, headers, config) {
+
+                })
+                .error(function(data, status, headers, config) {
+
+                });
+        }
 	}]);
 })();
