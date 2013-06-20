@@ -22,7 +22,7 @@
 
 			switch (provider) {
 				case 'google':
-					url = 'https://accounts.google.com/o/oauth2/auth?response_type=token&scope=https://www.googleapis.com/auth/userinfo.profile&client_id=124967647113.apps.googleusercontent.com&redirect_uri=' + redirectUri;
+					url = 'https://accounts.google.com/o/oauth2/auth?response_type=token&scope=profile+email&client_id=124967647113.apps.googleusercontent.com&redirect_uri=' + redirectUri;
 				break;
 
 				case 'facebook':
