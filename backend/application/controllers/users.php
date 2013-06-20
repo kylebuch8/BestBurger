@@ -19,7 +19,7 @@ class Users extends MY_Controller {
     	$data = json_decode(file_get_contents('php://input'), true);
     	$data = $this->security->xss_clean($data);
 
-        $data['authProvider'] = 'facebook';
+        $data['authProvider'] = 'google';
         $data['token'] = 'something cool';
 
     	/*
@@ -46,7 +46,7 @@ class Users extends MY_Controller {
     private function _getUserInfo($provider, $token) {
         if ($provider == 'google') {
             //$url = 'https://www.googleapis.com/oauth2/v1/userinfo?access_token=' . $token;
-            $url = 'https://www.googleapis.com/oauth2/v1/userinfo?access_token=ya29.AHES6ZQKTbZ6hvWtsQVGovYrXG0_pOWe0Hz2NfOkm7FibLrIfnyiynVP';
+            $url = 'https://www.googleapis.com/oauth2/v1/userinfo?access_token=ya29.AHES6ZT49NNT-iItQeiNHi48pcv-IAYtAHzO87-61EewV7QYKiPu2Q';
         }
 
         if ($provider == 'facebook') {
@@ -63,6 +63,8 @@ class Users extends MY_Controller {
          * sample response from google
          * { 
          *   "id": "111228173224427278855", 
+         *   "email": "kylebuch8@gmail.com",
+         *   "verified_email": true,
          *   "name": "Kyle Buchanan", 
          *   "given_name": "Kyle", 
          *   "family_name": "Buchanan", 
@@ -90,8 +92,20 @@ class Users extends MY_Controller {
          *   }
          * }
          */
+        
+        $responseObj = json_decode($response);
 
-        return $response;
+        /*
+         * we need to normalize data
+         */
+        $returnObj = new stdClass();
+        $returnObj->id = $responseObj->id;
+        $returnObj->first_name = ($provider == 'google') ? $responseObj->given_name : $responseObj->first_name;
+        $returnObj->last_name = ($provider == 'google') ? $responseObj->family_name : $responseObj->last_name;
+        $returnObj->email = ($provider == 'google') ? $responseObj->email : str_replace('\u0040', '@', $responseObj->email);
+        $returnObj->picture = ($provider == 'google') ? $responseObj->picture : $responseObj->picture->data->url;
+
+        return $returnObj;
     }
 
     private function _generatetoken() {
